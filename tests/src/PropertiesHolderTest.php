@@ -52,7 +52,7 @@ class PropertiesHolderTest extends AbstractTestCase
 
         $object = new Extendable();
 
-        $property = new Property('test', 1);
+        $property = new Property($object, 'test', 1);
 
         $this->assertTrue($holder->isEmpty($object));
 
@@ -63,6 +63,22 @@ class PropertiesHolderTest extends AbstractTestCase
         $properties->add($property);
 
         $this->assertFalse($holder->isEmpty($object));
+    }
+
+    /**
+     * @covers ::addProperty
+     */
+    public function testAddProperty()
+    {
+        $holder = new PropertiesHolder();
+
+        $object = new Extendable();
+
+        $property = new Property($object, 'test', 1);
+
+        $holder->addProperty($property);
+
+        $this->assertEquals(['test' => $property], $holder->get($object)->all());
     }
 
     /**

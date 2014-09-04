@@ -29,9 +29,10 @@ class PropertiesTest extends AbstractTestCase
     public function testAdd()
     {
         $properties = new Properties();
+        $object = new Extendable();
 
-        $property1 = new Property('test1', 1);
-        $property2 = new Property('test2', 2);
+        $property1 = new Property($object, 'test1', 1);
+        $property2 = new Property($object, 'test2', 2);
 
         $properties
             ->add($property1)
@@ -46,9 +47,10 @@ class PropertiesTest extends AbstractTestCase
     public function testGet()
     {
         $properties = new Properties();
+        $object = new Extendable();
 
-        $property1 = new Property('test1', 1);
-        $property2 = new Property('test2', 2);
+        $property1 = new Property($object, 'test1', 1);
+        $property2 = new Property($object, 'test2', 2);
 
         $properties
             ->add($property1)
@@ -65,8 +67,9 @@ class PropertiesTest extends AbstractTestCase
     public function testIsEmpty()
     {
         $properties = new Properties();
+        $object = new Extendable();
 
-        $property = new Property('test1', 1);
+        $property = new Property($object, 'test1', 1);
 
         $this->assertTrue($properties->isEmpty());
 
@@ -81,8 +84,9 @@ class PropertiesTest extends AbstractTestCase
     public function testHas()
     {
         $properties = new Properties();
+        $object = new Extendable();
 
-        $property = new Property('test1', 1);
+        $property = new Property($object, 'test1', 1);
 
         $this->assertFalse($properties->has('test1'));
 
@@ -97,8 +101,9 @@ class PropertiesTest extends AbstractTestCase
     public function testCleaer()
     {
         $properties = new Properties();
+        $object = new Extendable();
 
-        $property = new Property('test1', 1);
+        $property = new Property($object, 'test1', 1);
 
         $properties->add($property);
 

@@ -11,11 +11,13 @@ use Harp\ExternalProperties\PropertyInterface;
  */
 class Property implements PropertyInterface
 {
+    private $parent;
     private $name;
     private $value;
 
-    public function __construct($name, $value)
+    public function __construct($parent, $name, $value)
     {
+        $this->parent = $parent;
         $this->name = $name;
         $this->value = $value;
     }
@@ -23,6 +25,11 @@ class Property implements PropertyInterface
     public function getValue()
     {
         return $this->value;
+    }
+
+    public function getParent()
+    {
+        return $this->parent;
     }
 
     public function getPropertyName()

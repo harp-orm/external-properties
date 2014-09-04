@@ -49,6 +49,17 @@ class PropertiesHolder
     }
 
     /**
+     * @param PropertyInterface $property
+     * @return self
+     */
+    public function addProperty(PropertyInterface $property)
+    {
+        $this->get($property->getParent())->add($property);
+
+        return $this;
+    }
+
+    /**
      * @param  object $object
      * @return boolean
      */

@@ -13,4 +13,9 @@ interface PropertyInterface
      * @return string
      */
     public function getPropertyName();
+
+    /**
+     * @return object
+     */
+    public function getParent();
 }
